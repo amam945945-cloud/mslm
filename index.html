@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مواقيت الصلاة العالمية | مسلم</title>
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #2c3e50, #4ca1af);
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --text-gold: #ffd700;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--bg-gradient);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .container {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.2);
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+        .city-name { font-size: 28px; margin-bottom: 5px; color: var(--text-gold); }
+        .date { font-size: 14px; opacity: 0.8; margin-bottom: 25px; }
+        
+        /* تصميم جدول المواعيد */
+        .prayer-row {
+            display: flex;
+            justify-content: space-between;
+            background: rgba(0, 0, 0, 0.2);
+            margin: 10px 0;
+            padding: 15px 20px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+        .prayer-row:hover { transform: scale(1.02); background: rgba(255, 255, 255, 0.1); }
+        .prayer-name { font-weight: bold; font-size: 18px; }
+        .prayer-time { 
+            font-family: 'Courier New', Courier, monospace; 
+            font-size: 20px; 
+            color: var(--text-gold); 
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="city-name" id="cityName">مواقيت الصلاة</div>
+    <div class="date" id="currentDate">جاري تحميل التاريخ...</div>
+
+    <div id="prayerList">
+        <div class="prayer-row"><span class="prayer-name">الفجر</span><span class="prayer-time">05:12 AM</span></div>
+        <div class="prayer-row"><span class="prayer-name">الظهر</span><span class="prayer-time">12:24 PM</span></div>
+        <div class="prayer-row"><span class="prayer-name">العصر</span><span class="prayer-time">03:52 PM</span></div>
+        <div class="prayer-row"><span class="prayer-name">المغرب</span><span class="prayer-time">06:45 PM</span></div>
+        <div class="prayer-row"><span class="prayer-name">العشاء</span><span class="prayer-time">08:15 PM</span></div>
+    </div>
+
+    <p style="font-size: 11px; margin-top: 20px; opacity: 0.6;">تم التصميم بواسطة: مسلم العطوي 💻</p>
+</div>
+
+<script>
+    // تحديث التاريخ تلقائياً
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('currentDate').innerText = new Date().toLocaleDateString('ar-SA', options);
+
+    // ملاحظة تقنية لمسلم: في المستقبل بنربط هذا الكود بـ API عشان يجيب الأرقام حية حسب كل مدينة
+</script>
+
+</body>
+</html>
